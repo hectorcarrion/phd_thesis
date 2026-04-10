@@ -1197,6 +1197,7 @@ We repeat classification experiments using the PatchAlign \cite{aayushman-2024} 
 \centering
 \caption{F17k-trained models evaluated on the F17k test set. Baseline is trained on real data.}
 \label{cgddi:tab:f17k-f17k}
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{llccccccc}
 \toprule
 \textbf{Setting} & \textbf{Method} & \textbf{Acc} & \textbf{Light} & \textbf{Med} & \textbf{Dark} & \textbf{PQD} & \textbf{DPM} & \textbf{EOM} \\
@@ -1207,7 +1208,7 @@ We repeat classification experiments using the PatchAlign \cite{aayushman-2024} 
  & Synth Only & 88.4\% & 86.7\% & \textbf{94.1\%} & 81.8\% & 0.869 & 0.441 & 0.500 \\
  & Synth + Real & \textbf{90.7\%} & 86.7\% & \textbf{94.1\%} & \textbf{90.9\%} & \textbf{0.921} & 0.441 & 0.500 \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 \subsubsection{Cross-Dataset Validation}
@@ -1268,6 +1269,7 @@ Table \ref{cgddi:tab:cross-transfer} shows the performance of F17k-trained model
 \centering
 \caption{Cross-dataset transfer performance, a model is trained on one dataset then evaluated on the other's test set. Baseline model is trained solely on real data.}
 \label{cgddi:tab:cross-transfer}
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{llccccccc}
 \toprule
 \textbf{Setting} & \textbf{Method} & \textbf{Acc} & \textbf{Light} & \textbf{Med} & \textbf{Dark} & \textbf{PQD} & \textbf{DPM} & \textbf{EOM} \\
@@ -1284,7 +1286,7 @@ Table \ref{cgddi:tab:cross-transfer} shows the performance of F17k-trained model
  & Synth Only & \textbf{74.4\%} & \textbf{80.0\%} & \textbf{70.6\%} & 72.7\% & \textbf{0.882} & 0.556 & \textbf{0.613} \\
  & Synth + Real & 69.8\% & 73.3\% & 76.5\% & 54.5\% & 0.713 & \textbf{0.664} & 0.388 \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 % % Table for F17k models on DDI test set (cross-dataset transfer)
@@ -1311,6 +1313,7 @@ We also train on a mixed collection of both datasets, baseline using only real d
 \centering
 \caption{Aggregated cross-dataset performance. Baseline model is trained on mixed real data.}
 \label{cgddi:tab:combined}
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{llccccccc}
 \toprule
 \textbf{Setting} & \textbf{Method} & \textbf{Acc} & \textbf{Light} & \textbf{Med} & \textbf{Dark} & \textbf{PQD} & \textbf{DPM} & \textbf{EOM} \\
@@ -1327,7 +1330,7 @@ We also train on a mixed collection of both datasets, baseline using only real d
  & Synth Only & 79.7\% & 71.4\% & 84.4\% & 80.0\% & 0.846 & 0.436 & \textbf{0.833} \\
  & Synth + Real & \textbf{86.7\%} & \textbf{82.1\%} & \textbf{84.4\%} & \textbf{92.5\%} & \textbf{0.888} & 0.600 & 0.750 \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 
