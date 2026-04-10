@@ -347,7 +347,7 @@
     \bigskip
     {\bfseries {\expandafter\uppercase\expandafter{\@title}} \par}
     \medskip
-    \iffalse
+    \iftrue
     A dissertation submitted in partial satisfaction of the \par
     requirements for the degree of \par
    
@@ -370,7 +370,7 @@
 \vfill
 \begin{center}
 \fmfont
-\iffalse
+\iftrue
 \hfill \parbox{3in}{The Dissertation of {\@author}\\ is approved:} \\
 \bigskip \bigskip
 \hfill\rule{2.6in}{0.5pt}\\

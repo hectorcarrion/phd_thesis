@@ -43,6 +43,7 @@
 
 \title{Deep Learning Algorithms for Medical Image Representation Learning and Understanding}
 \author{Héctor Carrión}
+\degree{Doctor of Philosophy}
 \degreeyear{2026}
 \degreemonth{July}
 \chair{Professor Marcella Gomez}
@@ -97,7 +98,7 @@ Independently, a second axis along which dermatological AI is currently limited 
 \paragraph{A unified narrative.}
 This dissertation argues that the limitations above are connected and admit a shared set of solutions. Self-supervision on natural temporal structure can substitute for missing labels (HealNet, Chapter~\ref{section:ch2}). The same diffusion backbone that learns rich internal representations for discrimination (FEDD, Chapter~\ref{section:ch3}) can be controllably steered to generate the balanced data that discriminative systems need (cgDDI, Chapter~\ref{section:ch4}). And the synthetic-data paradigm extends naturally into the 3D regime, where a few megabytes of rendered pixel-perfect depth anchor a small adapter head on top of a frozen foundation model and correct metric scale across three real dermatological benchmarks (DermDepth, Chapter~\ref{section:ch5}). Across all four works the common threads are (a) small, clean datasets in place of massive noisy ones, (b) frozen large backbones with tiny trainable heads, and (c) explicit, skin-tone-stratified fairness evaluation.
 
-\subsection{Contributions}
+\section{Contributions}
 
 This dissertation presents methods, frameworks, and data toward multi-modal medical AI representation learning and understanding, robust to unlabeled, small, noisy, unbalanced, or unfair training data, and extending the field from 2D discrimination and segmentation to controllable generation and metric 3D reconstruction. We identify the major limitations of medical AI --- the overreliance on large data collections, the dependence on clean data--label pairs, the overtuning of methods toward a particular imaging modality, the lack of racial-fairness evaluation, and the need for interpretability and clinically meaningful measurement --- and tackle them across four works.
 
