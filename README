@@ -1,0 +1,28 @@
+Final PhD Thesis — Héctor Carrión (UCSC), July 2026 defense
+
+Build:
+    make          # runs pdflatex -> bibtex -> pdflatex -> pdflatex
+    make clean
+
+Overleaf:
+    zip -r Final_Thesis.zip Final_Thesis
+    upload Final_Thesis.zip as a new Overleaf project
+    set the main document to final_thesis.tex
+
+Structure:
+    final_thesis.tex     main document
+    final_thesis.bib     merged bibliography
+    ucthesis.cls         UCSC thesis class (unmodified)
+    uct{10,11,12}.clo    UCSC thesis font-size options (unmodified)
+    HealNet/             Chapter 2 figures
+    FEDD/                Chapter 3 figures
+    cgDDI/               Chapter 4 figures
+    DermDepth/           Chapter 5 figures
+
+Chapters:
+    1. Introduction
+    2. Representation Learning, Heal-Stages (HealNet)
+    3. Representation Learning, Fairness and Efficiency (FEDD)
+    4. Controllable Generation, Fairness and Data Efficiency (cgDDI)
+    5. Monocular Metric 3D Reconstruction for Dermatology (DermDepth)
+    6. Conclusion and Future Work

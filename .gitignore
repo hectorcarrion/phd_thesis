@@ -1,0 +1,25 @@
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+*.nav
+*.snm
+*.vrb
+*.xdv
+
+# Editor clutter
+.DS_Store
+*.swp
+*~
+
+# Built PDF — Overleaf builds its own copy, commit only if you want a canonical snapshot
+final_thesis.pdf
