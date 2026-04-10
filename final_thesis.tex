@@ -1048,36 +1048,36 @@ All three metrics demonstrate reasonable stability across skin tones, with low d
 \begin{table}[t]
 \centering
 \caption{\textbf{Left:} classification accuracy by rarity. \textbf{Right:} generative quality by skin tone.}
-\begin{subtable}[t]{0.48\linewidth}
-\centering
 \label{cgddi:tab:rare_disease}
+\label{cgddi:tab:gen_fairness}
+\begin{minipage}[t]{0.48\linewidth}
+\centering
+\vspace{0pt}
 \begin{tabular}{lcc}
 \toprule
-\multicolumn{1}{c}{Disease} & Exp. 1 (S) & Exp. 2 (S+R) \\
+\multicolumn{1}{c}{Disease} & Exp.~1 (S) & Exp.~2 (S+R) \\
 Commonality & Accuracy (\%) & Accuracy (\%) \\
 \midrule
 Common ($>$10) & 85.05 & 91.59 \\
-Rare (3--10) & 94.74 & 89.47 \\
-V. Rare (1--2) & 83.33 & 83.33 \\
+Rare (3--10)   & 94.74 & 89.47 \\
+V.\ Rare (1--2)& 83.33 & 83.33 \\
 \bottomrule
 \end{tabular}
-% \caption{Classification accuracy by rarity.}
-\end{subtable}\hfill
-\begin{subtable}[t]{0.48\linewidth}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\linewidth}
 \centering
-\label{cgddi:tab:gen_fairness}
-\begin{tabular}{lccc} % 4 columns total
+\vspace{0pt}
+\begin{tabular}{lccc}
 \toprule
 Skin Tone & FID $\downarrow$ & KID $\downarrow$ & LPIPS $\downarrow$ \\
 \midrule
-Light    & 103.45 & 0.039 & 0.715 \\
-Medium   & 88.41  & 0.032 & 0.741 \\
-Dark     & 108.07 & 0.016 & 0.734 \\
-Max/Min  & 1.22  & 2.41  & 1.04 \\
+Light   & 103.45 & 0.039 & 0.715 \\
+Medium  &  88.41 & 0.032 & 0.741 \\
+Dark    & 108.07 & 0.016 & 0.734 \\
+Max/Min &   1.22 & 2.41  & 1.04  \\
 \bottomrule
 \end{tabular}
-% \caption{Generative quality metrics by skin tone.}
-\end{subtable}
+\end{minipage}
 \end{table}
 
 \subsubsection{Contribution of Each Generation Method}
