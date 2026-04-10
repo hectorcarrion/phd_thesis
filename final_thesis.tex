@@ -1038,35 +1038,33 @@ As stated in \cite{aayushman-2024}, EOM is the most important fairness metric, a
 
 To understand how synthetic augmentation impacts diseases with varying training data availability, we stratify classification performance by disease frequency. We define common diseases as those represented by more than 10 observations (107 test cases), rare as between 3 and 10 (19 test cases), and very rare as between 1 and 2 (6 test cases).
 
-We observe that fine-tuning on real data improves the common case, slightly reduces the rare case, and has no impact on the very rare case. As discussed, our synthetic dataset contains significantly more observations of rare diseases compared to base DDI, while the intricacies and imbalance of real data encourage the model to improve the common case (leading to a higher mean accuracy) as shown on Table 3 (Left). Notably, our lesion-mapping approach enables augmentation for single-sample diseases, maintaining competitive accuracy even for conditions with minimal training data.
+We observe that fine-tuning on real data improves the common case, slightly reduces the rare case, and has no impact on the very rare case. As discussed, our synthetic dataset contains significantly more observations of rare diseases compared to base DDI, while the intricacies and imbalance of real data encourage the model to improve the common case (leading to a higher mean accuracy) as shown in Table~\ref{cgddi:tab:rare_disease}. Notably, our lesion-mapping approach enables augmentation for single-sample diseases, maintaining competitive accuracy even for conditions with minimal training data.
 
 \paragraph{Generative fairness metrics.}
 While classification fairness metrics demonstrate improved equity in malignancy diagnosis, we additionally evaluate whether our generation methods maintain quality parity across skin tones. We compute Fréchet Inception Distance (FID) \cite{heusel-2017}, Kernel Inception Distance (KID) \cite{binkowski-2018}, and Learned Perceptual Image Patch Similarity (LPIPS) \cite{zhang2018perceptual} between cgDDI and held-out real DDI images.
 
-All three metrics demonstrate reasonable stability across skin tones, with low dispersion for FID ($\sigma = 8.39$, max/min ratio = 1.22) and LPIPS ($\sigma = 0.011$, max/min ratio = 1.04). KID shows the largest relative spread ($\sigma = 0.010$, max/min = 2.41), but the absolute differences are small, so the practical impact is limited. Each metric slightly favors a different tone (FID: Medium best, KID: Dark best, LPIPS: Light best), indicating no systematic advantage for any population. This is shown in Table 3 (Right). We further ablate these metrics per generative method in the Appendix, along with additional visual examples that reinforce generative fairness across populations.
+All three metrics demonstrate reasonable stability across skin tones, with low dispersion for FID ($\sigma = 8.39$, max/min ratio = 1.22) and LPIPS ($\sigma = 0.011$, max/min ratio = 1.04). KID shows the largest relative spread ($\sigma = 0.010$, max/min = 2.41), but the absolute differences are small, so the practical impact is limited. Each metric slightly favors a different tone (FID: Medium best, KID: Dark best, LPIPS: Light best), indicating no systematic advantage for any population. This is shown in Table~\ref{cgddi:tab:gen_fairness}. We further ablate these metrics per generative method in the Appendix, along with additional visual examples that reinforce generative fairness across populations.
 
 \begin{table}[t]
 \centering
-\caption{\textbf{Left:} classification accuracy by rarity. \textbf{Right:} generative quality by skin tone.}
+\caption{Classification accuracy stratified by disease rarity.}
 \label{cgddi:tab:rare_disease}
-\label{cgddi:tab:gen_fairness}
-\begin{minipage}[t]{0.48\linewidth}
-\centering
-\vspace{0pt}
 \begin{tabular}{lcc}
 \toprule
 \multicolumn{1}{c}{Disease} & Exp.~1 (S) & Exp.~2 (S+R) \\
 Commonality & Accuracy (\%) & Accuracy (\%) \\
 \midrule
-Common ($>$10) & 85.05 & 91.59 \\
-Rare (3--10)   & 94.74 & 89.47 \\
-V.\ Rare (1--2)& 83.33 & 83.33 \\
+Common ($>$10)  & 85.05 & 91.59 \\
+Rare (3--10)    & 94.74 & 89.47 \\
+V.\ Rare (1--2) & 83.33 & 83.33 \\
 \bottomrule
 \end{tabular}
-\end{minipage}\hfill
-\begin{minipage}[t]{0.48\linewidth}
+\end{table}
+
+\begin{table}[t]
 \centering
-\vspace{0pt}
+\caption{Generative quality per skin tone: FID, KID, and LPIPS between cgDDI synthetics and held-out real DDI images.}
+\label{cgddi:tab:gen_fairness}
 \begin{tabular}{lccc}
 \toprule
 Skin Tone & FID $\downarrow$ & KID $\downarrow$ & LPIPS $\downarrow$ \\
@@ -1074,10 +1072,10 @@ Skin Tone & FID $\downarrow$ & KID $\downarrow$ & LPIPS $\downarrow$ \\
 Light   & 103.45 & 0.039 & 0.715 \\
 Medium  &  88.41 & 0.032 & 0.741 \\
 Dark    & 108.07 & 0.016 & 0.734 \\
+\midrule
 Max/Min &   1.22 & 2.41  & 1.04  \\
 \bottomrule
 \end{tabular}
-\end{minipage}
 \end{table}
 
 \subsubsection{Contribution of Each Generation Method}
