@@ -729,6 +729,7 @@ Simultaneously, the size of the dataset is not the only important dimension to c
   \begin{threeparttable}
     \caption{\textbf{Synthetic dermatological datasets.} Comparison across training data, fairness indicators, skin-tone coverage, controllable diseases, single-view augmentation support, dataset size, and open release. cgDDI is the only surveyed method to support single-view augmentation, achieved via its non-parametric lesion-mapping branch (Section \ref{cgddi:sec:lesion_mapping}).}
     \label{cgddi:datasets_table}
+    \resizebox{\textwidth}{!}{%
     \begin{tabular}{lccccccc}
       \toprule
       Method
@@ -754,7 +755,7 @@ Simultaneously, the size of the dataset is not the only important dimension to c
       \textbf{cgDDI (ours)}
         & DDI & Multiple & I--VI & 13 & \checkmark & 266k & \checkmark \\
       \bottomrule
-    \end{tabular}
+    \end{tabular}}
     \begin{tablenotes}
       \item[]*We note \cite{ktena-2024} training data can be made available for non-commercial use upon request, payment of administrative fees, and legal compliance.
     \end{tablenotes}
