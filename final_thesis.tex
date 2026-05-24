@@ -727,61 +727,32 @@ Simultaneously, the size of the dataset is not the only important dimension to c
 \begin{table}
   \centering
   \begin{threeparttable}
-    \caption{\textbf{Synthetic dermatological datasets.}}
+    \caption{\textbf{Synthetic dermatological datasets.} Comparison across training data, fairness indicators, skin-tone coverage, controllable diseases, single-view augmentation support, dataset size, and open release. cgDDI is the only surveyed method to support single-view augmentation, achieved via its non-parametric lesion-mapping branch (Section \ref{cgddi:sec:lesion_mapping}).}
     \label{cgddi:datasets_table}
-    \begin{tabular}{lcccccc}
+    \begin{tabular}{lccccccc}
       \toprule
-      Method 
+      Method
         & \makecell{Training\\Data}
-        & \makecell{Fairness\\Metrics} 
+        & \makecell{Fairness\\Metrics}
         & \makecell{FST\\Coverage}
-        & \makecell{Controllable\\$n$ Diseases}
+        & \makecell{Ctrl.\\Diseases}
+        & \makecell{Single-\\view}
         & \makecell{Total\\Size}
-        & \makecell{Dataset\\Availability} \\
+        & \makecell{Open\\Data} \\
       \midrule
-      \cite{wang-2024}
-        & F17k 
-        & FST Acc.
-        & I-VI
-        & 3
-        & 192 
-        & Private \\
-      \cite{sagers-2023}
-        & F17k, DDI 
-        & FST Acc.
-        & I-VI
-        & 9
-        & 459k
-        & Published \\
-      \cite{ktena-2024}
-        & Private 
-        & None
-        & None
-        & 6
-        & 180k
-        & Private \\
-      \cite{ktena-2024}
-        & Private\tnote{*}
-        & FST Gap
-        & I-VI
-        & 27
-        & 50k 
-        & Private \\
-      \cite{wang-2024}
-        & F17k 
-        & FST Acc.
-        & I-II, V-VI 
-        & 7
-        & 7.6k 
-        & Private \\
+      Sagers et al. 2022 \cite{sagers-2022}
+        & F17k & FST Acc. & I--VI & 3 & -- & 192 & -- \\
+      Sagers et al. 2023 \cite{sagers-2023}
+        & F17k, DDI & FST Acc. & I--VI & 9 & -- & 459k & \checkmark \\
+      Akrout et al. 2024 \cite{akrout-2024}
+        & Private & None & None & 6 & -- & 180k & -- \\
+      Ktena et al. 2024 \cite{ktena-2024}
+        & Private\tnote{*} & FST Gap & I--VI & 27 & -- & 50k & -- \\
+      Wang et al. 2024 \cite{wang-2024}
+        & F17k & FST Acc. & I--II, V--VI & 7 & -- & 7.6k & -- \\
       \midrule
       \textbf{cgDDI (ours)}
-        & DDI
-        & Multiple
-        & I-VI
-        & 13
-        & 266k
-        & Published \\
+        & DDI & Multiple & I--VI & 13 & \checkmark & 266k & \checkmark \\
       \bottomrule
     \end{tabular}
     \begin{tablenotes}
@@ -1082,7 +1053,7 @@ Given this criteria, do not include semantic synthetics produced with $\leq 10$ 
 This section provides detailed information about our classification experiments, including model architecture, training hyperparameters, data splitting strategy, fairness metrics computation, and statistical analysis.
 
 \paragraph{Model Architecture and Training Hyperparameters}
-For our classification experiments, we followed the contrastive disentanglement approach from \cite{du_2023_fairdisco} with the patch-alignment improvements in \cite{aayushman-2024}. The classifier architecture consists of a Vision Transformer (ViT-B/16) pre-trained on ImageNet-21k.
+For our classification experiments, we followed the contrastive disentanglement approach from \cite{du_2023_fairdisco} with the patch-alignment improvements in \cite{aayushman-2024}. The classifier architecture consists of a Vision Transformer (ViT-B/16) pre-trained on ImageNet-21k. The PatchAlign training pipeline (which we use as the baseline) already applies a standard augmentation stack --- random crops, rotations, color jitter, horizontal flips, and ImageNet normalization. cgDDI gains are therefore reported \emph{on top of} this stack and operate along axes orthogonal to conventional augmentation: skin tone, lesion morphology, and single-sample disease coverage cannot be synthesized by pixel-level transforms.
 
 In terms of hyperparamters, we follow \cite{aayushman-2024}. Adam optimizer with learning rate $1e^{-4}$, with a linear decay scheduler at step size 2 and a decay factor of 0.8. Batch size is set to 32 and train for a total of 20 epochs.
 
@@ -1096,6 +1067,9 @@ To ensure valid evaluation and prevent data leakage, we carefully designed our e
 For Experiment 1 (training exclusively on synthetic data), we utilized synthetic images from our cgDDI dataset, ensuring no overlap with test images from the real DDI dataset. This is accomplished by removing any lesion-mapped synthetics which are generated from image donors present on the test set (as split by the \cite{aayushman-2024} seeds). Furthermore, we remove any semantic synthetic which was generated with target disease and healthy image prompt which together reconstruct an image which is present on the test set.
 
 For Experiment 2 (fine-tuning on real data), we first trained the model on our synthetic cgDDI dataset, then fine-tuned it on the real DDI training set. The model was evaluated on the same real DDI test set as in Experiment 1 and as \cite{aayushman-2024}.
+
+\paragraph{Test-set subgroup composition}
+For transparency under the small-data regime, we report per-skin-tone test counts. DDI 5-fold cross-validation averages 131 test samples per fold (42 Light I--II, 48 Medium III--IV, 41 Dark V--VI). The F17k 15\% hold-out has 55 total (22 Light, 17 Medium, 16 Dark). These small absolute sample sizes are inherent to biopsy-confirmed, skin-tone-balanced dermatology data; we treat them as a structural constraint of the field and encourage further data collection with verified Fitzpatrick labels.
 
 \paragraph{Statistical Significance}
 To assess the statistical robustness of our results, and to directly compare against \cite{aayushman-2024} we performed five experiments with differnet train/test split seeds. These are taken directly from \cite{aayushman-2024} code repository and are ['S36' 'S37', 'S38', 'S39', 'S40'] which we believe to be seeds 36, 37, 38, 39 and 40. We calculated mean performance and standard deviation for each metric. The standard deviations reported in Table~\ref{cgddi:perf_table} reflect the variation across these splits.
@@ -1593,7 +1567,7 @@ DDI      & Clinical + ruler   &      47 &      33 &  14   & Ruler annotation \\
 \end{table}
 
 \subsubsection{D-Synth}
-We extend \cite{kim-2024}, which renders dermoscopic-style samples following biologically motivated lesion growth patterns. Originally, the method was designed to export 2D images and binary masks; we additionally contribute functionality to export per-pixel depth in metric scale, camera intrinsics and normal maps, while adding camera angles and multiple lesions. We synthesize 4{,}000 samples across 131 melanin levels and 240 lesion morphologies at 12--20\,mm distance with $75^\circ$ field of view. We call this new dataset D-Synth (Figure~\ref{fig:D-Synth}).
+We extend \cite{kim-2024}, which renders dermoscopic-style samples following biologically motivated lesion growth patterns. Originally, the method was designed to export 2D images and binary masks; we additionally contribute functionality to export per-pixel depth in metric scale, camera intrinsics and normal maps, while adding camera angles and multiple lesions. We synthesize 4{,}000 samples across 131 melanin levels and 240 lesion morphologies at 12--20\,mm distance with $75^\circ$ field of view. We call this new dataset D-Synth (Figure~\ref{fig:D-Synth}). D-Synth retains the anatomical realism stack of \cite{kim-2024}, including layered melanosome, blood, and lipid models across the epidermis, dermis, and hypodermis, alongside physics-based light scatter spanning multiple wavelengths and skin tones. D-Synth's principal value, however, is not photorealism but the availability of pixel-perfect 3D ground truth (metric depth, surface normals, and camera intrinsics) at scale --- a training signal that is not obtainable from real dermatological capture in any reliable form. The remaining sim-to-real RGB-appearance gap is closed by the progressive real-data refinement described in Section~\ref{sec:training}, and the design choice is empirically validated in Table~\ref{tab:dd_main}, where D-Synth alone already drives the dominant SKINL2 correction $16.1\!\times\!\rightarrow\!1.11\!\times$ while preserving SI-$\delta_1$ at 100\%.
 
 \subsubsection{SKINL2 and WoundsDB}\label{sec:realdata}
 To bridge the sim-to-real gap and evaluate across clinical distances, we process SKINL2 and WoundsDB for metric-scale training and evaluation. SKINL2 plenoptic depth maps exhibit local planar noise \cite{lourenco-2022} and WoundsDB time-of-flight maps are often sparse, low-resolution with spatial offset from the RGB sensor. These issues may contribute noise to geometric evaluation but do not impact metric scale.
@@ -1663,7 +1637,7 @@ MoGe-2~\cite{wang2025moge2}         & 331\,M  & 16.10 & \underline{100.0} & 0.62
 \begin{figure}[t]
     \centering
     \includegraphics[width=\textwidth]{DermDepth/DD_3Bold.pdf}
-    \caption{\textbf{Predicted Depth, Scale and Normals.} We visualize performance across three datasets at different metric distances. We find DermDepth produces more accurate and consistent scale and normal maps with finer lesion detail. We note DDI was not collected alongside 3D information, thus we estimate scale error from known ruler area.}
+    \caption{\textbf{Predicted Depth, Scale and Normals.} We visualize performance across three datasets at different metric distances. We find DermDepth produces more accurate and consistent scale and normal maps with finer lesion detail. We note DDI was not collected alongside 3D information, thus we estimate scale error from known ruler area. The ground-truth depth references themselves carry dataset-specific sensor noise (SKINL2 plenoptic local planar noise; WoundsDB time-of-flight sparsity and RGB-misalignment, as discussed in Section~\ref{sec:realdata}), so visual differences between GT and DermDepth in the figure should be interpreted with these artifacts in mind. The scale-aligned SI-$\delta_1$ in Table~\ref{tab:dd_main} quantifies geometry agreement at 100\% (SKINL2) and 92.6\% (WoundsDB) --- per-pixel depth ratio within 1.25$\times$ of GT.}
     \label{fig:dd_comparison}
 \end{figure}
 
@@ -1777,7 +1751,7 @@ Dysplastic nevus           & 5.1       & $\geq 5$; typical 5--15 & \cite{baigrie
 D-Synth currently renders dermoscopic-distance scenes (12--20\,mm), so macroscopic clinical distances must be covered by real training data, a gap we bridge with WoundsDB and SKINL2, but which limits the synthetic component to close-range correction. The real-data ground-truth itself carries noise: plenoptic depth maps exhibit local planar noise and time-of-flight maps are often sparse. These issues affect geometric evaluation (surface normals in particular) but do not compromise metric scale. Finally, DDI pseudo-GT is derived from ruler segmentation and known ruler dimensions; segmentation errors or partial ruler occlusion introduce uncertainty, and the DDI test set ($n{=}14$) remains small, limiting statistical significance for DDI results, an issue common under limited fairness data. We strongly believe the community should collect more data with clean 3D information.
 
 \subsubsection{Summary}\label{sec:dd_summary}
-We have shown that foundation metric depth models fail on dermatological images, overestimating dermoscopic depth by $4$--$16\times$ while underestimating clinical wound depth. DermDepth corrects this systematic error by fine-tuning a scale prediction head and normal output head (0.6\% of parameters) on D-Synth, the first synthetic dermoscopic dataset with pixel-perfect 3D information, followed by progressive real-data refinement with just 346 clinical samples. The result is much improved metric scale across three diverse benchmarks with equitable performance across Fitzpatrick skin tones (disparity: $10.90 \rightarrow 1.02$) and clinically consistent 3D measurements validated against published lesion size ranges.
+We have shown that foundation metric depth models fail on dermatological images, overestimating dermoscopic depth by $4$--$16\times$ while underestimating clinical wound depth. DermDepth corrects this systematic error by fine-tuning a scale prediction head and normal output head (0.6\% of parameters) on D-Synth, the first synthetic dermoscopic dataset with pixel-perfect 3D information, followed by progressive real-data refinement with just 346 clinical samples. The result is much improved metric scale across three diverse benchmarks with equitable performance across Fitzpatrick skin tones (disparity: $10.90 \rightarrow 1.02$) and clinically consistent 3D measurements validated against published lesion size ranges. DermDepth is memory-efficient: inference fits within a single GPU, and the small trainable head over a frozen foundation backbone is compatible with mobile and edge deployment in principle, which we leave as future work.
 
 % ============================================================
 % Chapter 6 — Conclusion and Future Work
