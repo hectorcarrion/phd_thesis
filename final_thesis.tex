@@ -729,34 +729,36 @@ Simultaneously, the size of the dataset is not the only important dimension to c
   \begin{threeparttable}
     \caption{\textbf{Synthetic dermatological datasets.} Comparison across training data, fairness indicators, skin-tone coverage, controllable diseases, single-view augmentation support, dataset size, and open release. cgDDI is the only surveyed method to support single-view augmentation, achieved via its non-parametric lesion-mapping branch (Section \ref{cgddi:sec:lesion_mapping}).}
     \label{cgddi:datasets_table}
-    \resizebox{\textwidth}{!}{%
-    \begin{tabular}{lccccccc}
+    \footnotesize
+    \setlength\tabcolsep{3pt}
+    \begin{tabular}{@{}lccccccc@{}}
       \toprule
       Method
         & \makecell{Training\\Data}
         & \makecell{Fairness\\Metrics}
-        & \makecell{FST\\Coverage}
-        & \makecell{Ctrl.\\Diseases}
+        & \makecell{FST\\Cov.}
+        & \makecell{Ctrl.\\Dis.}
         & \makecell{Single-\\view}
         & \makecell{Total\\Size}
         & \makecell{Open\\Data} \\
       \midrule
-      Sagers et al. 2022 \cite{sagers-2022}
+      Sagers et al. 2022~\cite{sagers-2022}
         & F17k & FST Acc. & I--VI & 3 & -- & 192 & -- \\
-      Sagers et al. 2023 \cite{sagers-2023}
+      Sagers et al. 2023~\cite{sagers-2023}
         & F17k, DDI & FST Acc. & I--VI & 9 & -- & 459k & \checkmark \\
-      Akrout et al. 2024 \cite{akrout-2024}
+      Akrout et al. 2024~\cite{akrout-2024}
         & Private & None & None & 6 & -- & 180k & -- \\
-      Ktena et al. 2024 \cite{ktena-2024}
+      Ktena et al. 2024~\cite{ktena-2024}
         & Private\tnote{*} & FST Gap & I--VI & 27 & -- & 50k & -- \\
-      Wang et al. 2024 \cite{wang-2024}
+      Wang et al. 2024~\cite{wang-2024}
         & F17k & FST Acc. & I--II, V--VI & 7 & -- & 7.6k & -- \\
       \midrule
       \textbf{cgDDI (ours)}
         & DDI & Multiple & I--VI & 13 & \checkmark & 266k & \checkmark \\
       \bottomrule
-    \end{tabular}}
+    \end{tabular}
     \begin{tablenotes}
+      \footnotesize
       \item[]*We note \cite{ktena-2024} training data can be made available for non-commercial use upon request, payment of administrative fees, and legal compliance.
     \end{tablenotes}
   \end{threeparttable}
