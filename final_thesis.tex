@@ -790,7 +790,7 @@ The most commonly cited macroscopic dataset for training and evaluating fairness
 We exclusively use DDI in our experiments because it is biopsy- and dermatologist-confirmed for both condition and skin tone, which helps avoid noise in our training process. DDI includes a range of rare, common, benign, and malignant skin lesions across all skin tones. The images were captured under varying conditions using standard RGB cameras as a representative of the first-pass examination. In total, the dataset contains 656 samples, 171 malignant and 485 benign. There are 78 unique disease labels, some of which are closely related or subgroups of each other, which we combine into a total of 65 unique disease categories, as is common in some previous work \cite{ham}. We call the dataset with 65 disease categories ``Joined DDI" and detail our grouping reasoning in the Appendix. After joining, 25 diseases are represented by a single observation, 27 by 2-10 samples, and 13 by more than 10 observations. This becomes our base dataset.
 
 \paragraph{Data provenance and de-identification.}
-This work builds exclusively on the publicly available DDI dataset \cite{daneshjou_2022_disparities}, which was collected under Stanford IRB protocol numbers 36050 and 61146. All clinical images in the original dataset were de-identified following a strict protocol that removed all personally identifiable information (PII), including faces, tattoos, and unique identifiers.
+This work builds exclusively on the publicly available DDI dataset \cite{daneshjou_2022_disparities}, which was collected under Stanford IRB protocol numbers 36050 and 61146. All clinical images in the original dataset were de-identified following a strict protocol that removed all Personally Identifiable Information (PII), including faces, tattoos, and unique identifiers.
 
 No new human subjects were enrolled for this study, so no additional IRB approval was required. Our synthetic data generation further enhances privacy by creating artificial images that do not directly correspond to any real individual patient.
 
@@ -1780,7 +1780,7 @@ DermDepth (Chapter~\ref{section:dermdepth}) extends dermatological image underst
 
 \section{Future Work: What Has Been Delivered}
 
-The advancement thesis this document extends is concluded with several forward-looking directions, a portion of which are now delivered by the new chapters:
+ 
 
 \begin{itemize}
   \item \textbf{Language-aligned diffusion encoding for dermatology.} The advancement proposal speculated that CLIP-style or textually-conditioned diffusion models could be used to interpolate between lesion stages and to search the embedding space with natural-language pivots. Chapter~\ref{section:cgddi} realizes a closely related form of this direction: cgDDI learns disease-specific text tokens via textual inversion, fine-tunes the latent diffusion backbone with parameter-efficient LoRA adapters, and exposes fine-grained control over skin tone, morphology, and body location through the prompt. The anchor-based healthy synthesis enables the same diffusion model to serve as both a generator and a prior-preservation target.
