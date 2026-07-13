@@ -1,11 +1,15 @@
 # Deep Learning Algorithms for Medical Image Representation Learning and Understanding
 
 **Héctor Carrión**
+Advised by **Prof. Narges Norouzi** — EECS, **UC Berkeley**
 PhD, Computer Science & Engineering — University of California, Santa Cruz — 2026
 
 [![Dissertation: CC BY 4.0](https://img.shields.io/badge/Dissertation-CC%20BY%204.0-blue.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Venues](https://img.shields.io/badge/MICCAI-2022%20%C2%B7%202023%20%C2%B7%202026-b31b1b.svg)](#the-four-works)
-[![UC Santa Cruz](https://img.shields.io/badge/UC%20Santa%20Cruz-2026-FDC700.svg)](https://engineering.ucsc.edu/)
+[![Advised at UC Berkeley EECS](https://img.shields.io/badge/Advised%20at-UC%20Berkeley%20EECS-003262.svg)](https://eecs.berkeley.edu/)
+[![UC Santa Cruz](https://img.shields.io/badge/Degree-UC%20Santa%20Cruz-FDC700.svg)](https://engineering.ucsc.edu/)
+
+### 📕 [**Read the full dissertation (PDF)**](https://drive.google.com/file/d/1zNR7XCOYW__jsAB4tmoiXvzMHJl8raTo/view?usp=sharing)
 
 Four papers, one throughline: **how do you build dermatological AI that is accurate, fair, and data-efficient when clean, demographically balanced labels barely exist?** This dissertation answers it as a single arc — *when there are no labels, learn from the temporal structure of healing* (**HealNet**); *when there is no temporal structure, learn from a frozen diffusion backbone* (**FEDD**); *when the data themselves are too few and too imbalanced, generate them* with sensitive-attribute control (**cgDDI**); *and to make measurements clinically real, recover metric 3D from a single image* (**DermDepth**).
 
@@ -15,18 +19,18 @@ Every step targets where medical AI fails first — rare diseases, under-imaged 
 
 ## Committee
 
-| Role | Member |
-| --- | --- |
-| **Chair & Advisor** | Prof. Narges Norouzi |
-| Member | Prof. Marcella Gomez |
-| Member | Prof. Leilani H. Gilpin |
+| Role | Member | Affiliation |
+| --- | --- | --- |
+| **Chair & Advisor** | Prof. Narges Norouzi | EECS, **UC Berkeley** |
+| Member | Prof. Marcella Gomez | UC Santa Cruz |
+| Member | Prof. Leilani H. Gilpin | UC Santa Cruz |
 
 ---
 
 ## Defense
 
-- 📄 **Slides (PDF):** https://drive.google.com/file/d/1LxmCbI_5ZpJpAr26gbgczajHU6kpctdI/view?usp=sharing
-- 🎥 **Recording:** https://drive.google.com/file/d/1kIwDJ01-y-UNzm7bDlEmVW3gf-VpqPDR/view?usp=drive_link
+- 📄 [**Slides (PDF)**](https://drive.google.com/file/d/1LxmCbI_5ZpJpAr26gbgczajHU6kpctdI/view?usp=sharing)
+- 🎥 [**Recording**](https://drive.google.com/file/d/1kIwDJ01-y-UNzm7bDlEmVW3gf-VpqPDR/view?usp=drive_link)
 
 ---
 
