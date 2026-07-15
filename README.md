@@ -52,8 +52,8 @@ Each method chapter is a peer-reviewed contribution that releases its code, chec
 | --- | --- | --- | --- |
 | **HealNet** | 3 | MICCAI MLMI 2022 | [📄 Paper](https://link.springer.com/chapter/10.1007/978-3-031-21014-3_46) |
 | **FEDD** | 4 | MICCAI 2023 | [hectorcarrion/FEDD](https://github.com/hectorcarrion/FEDD) |
-| **cgDDI** | 5 | MICCAI 2026 | [hectorcarrion/ControllableGenDDI](https://github.com/hectorcarrion/ControllableGenDDI) |
-| **DermDepth** | 6 | MICCAI 2026 | [hectorcarrion/dermdepth](https://github.com/hectorcarrion/dermdepth) |
+| **cgDDI** | 5 | MICCAI 2026 | [hectorcarrion/ControllableGenDDI](https://github.com/hectorcarrion/ControllableGenDDI) · [arXiv:2607.12987](https://arxiv.org/abs/2607.12987) |
+| **DermDepth** | 6 | MICCAI 2026 | [hectorcarrion/dermdepth](https://github.com/hectorcarrion/dermdepth) · [arXiv:2607.13010](https://arxiv.org/abs/2607.13010) |
 
 - **HealNet** — self-supervised heal-stage learning from the temporal structure of wound healing, with *no human labels required*.
 - **FEDD** — a frozen denoising-diffusion backbone re-tasked as a single-image encoder for label-efficient, fairness-evaluated skin-lesion analysis.
