@@ -400,11 +400,11 @@
 \fi
 \end{center}
 \noindent\noindent
-%\rule{2.85in}{0.5pt}\\
+\rule{2.85in}{0.5pt}\\
 \fmfont
-%\makebox[3in][l]{\@deanlineone}\\
-%\makebox[3in][l]{\@deanlinetwo}\\
-%\makebox[3in][l]{\@deanlinethree}\\
+\makebox[3in][l]{\@deanlineone}\\
+\makebox[3in][l]{\@deanlinetwo}\\
+\makebox[3in][l]{\@deanlinethree}\\
 \end{alwayssingle}
 }}
 
