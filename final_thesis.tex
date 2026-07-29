@@ -82,6 +82,81 @@ Medical image analysis is constrained by a structural mismatch: clinical decisio
 Across the work, a pattern recurs: small, clean datasets; frozen large backbones with trainable heads; and explicit, skin-tone-stratified fairness evaluation. We believe this framework generalizes beyond dermatology to any data-constrained medical imaging domain. All synthetic data, fine-tuned checkpoints, annotation work, code, and per-disease generative models are released openly to support reproducibility and continued fairness research.
 \end{abstract}
 
+% A Dedication is OPTIONAL (UCSC: "If you wish, you may include a page..."). It is
+% left out deliberately: the class's dedication environment prints no heading, so an
+% empty one renders as a numbered blank page with a Table of Contents entry pointing
+% at nothing. To add one, uncomment and write the text:
+%
+% \begin{dedication}
+% \begin{center}\textit{For ...}\end{center}
+% \end{dedication}
+
+\begin{acknowledgements}
+
+% ---------------------------------------------------------------------------
+% DRAFT -- please rewrite the personal paragraphs in your own voice.
+% The final two paragraphs are NOT optional: UCSC requires a reprint statement
+% and a detailed per-publication contribution statement whenever chapters are
+% reprints of published, co-authored work (Guidelines Rev July 2026, Sec. G).
+% ---------------------------------------------------------------------------
+
+First and foremost, I thank my advisor, Professor Narges Norouzi, who has shaped this
+work and my development as a researcher more than anyone. She gave me the freedom to
+follow problems I found genuinely interesting, the honesty to tell me when an idea was
+not working, and the persistence to keep pushing when the results were not yet there.
+Whatever is careful and rigorous in this dissertation, I learned from her.
+
+I am grateful to the members of my dissertation reading committee, Professor Marcella
+Gomez and Professor Leilani H. Gilpin, for their time, their sharp questions, and
+feedback that repeatedly made this work stronger.
+
+This research would not have been possible without my collaborators. I thank Mohammad
+Jafari, Hsin-ya Yang, Roslyn Rivkah Isseroff, Marco Rolandi, and Marcella M. Gomez for
+the interdisciplinary partnership behind the wound-healing work that opened this line of
+research, and for showing me what it looks like when engineering and clinical practice
+are made to speak to one another.
+
+I also thank the researchers and institutions who made their data available. This
+dissertation rests on the Diverse Dermatology Images dataset, SKINL2, WoundsDB, and
+Fitzpatrick17k; datasets built with real care for representation, without which none of
+the fairness results reported here could have been measured at all. My thanks as well to
+the anonymous reviewers whose criticism materially improved each of these chapters.
+
+Finally, I thank my family and friends for their support and patience throughout this
+work. % TODO(Héctor): name the people who matter most to you here.
+
+The text of this dissertation includes reprints of the following previously published
+material: H.~Carrión, M.~Jafari, H.~Yang, R.~R.~Isseroff, M.~Rolandi, M.~M.~Gomez, and
+N.~Norouzi, ``HealNet -- Self-Supervised Acute Wound Heal-Stage Classification,''
+\emph{Machine Learning in Medical Imaging (MLMI), held in conjunction with MICCAI},
+Lecture Notes in Computer Science, Springer, 2022 (Chapter~\ref{section:healnet});
+H.~Carrión and N.~Norouzi, ``FEDD -- Fair, Efficient, and Diverse Diffusion-based Lesion
+Segmentation and Malignancy Classification,'' \emph{International Conference on Medical
+Image Computing and Computer-Assisted Intervention (MICCAI)}, Lecture Notes in Computer
+Science, Springer, 2023 (Chapter~\ref{section:fedd}); H.~Carrión and N.~Norouzi,
+``Controllable Generation of Diverse Dermatological Imagery for Fair and Efficient
+Malignancy Classification,'' \emph{MICCAI}, 2026, accepted for publication
+(Chapter~\ref{section:cgddi}); and H.~Carrión and N.~Norouzi, ``DermDepth: Toward
+Monocular Metric Scale 3D Reconstruction Models for Dermatology,'' \emph{MICCAI}, 2026,
+accepted for publication (Chapter~\ref{section:dermdepth}). The co-author Narges Norouzi
+listed in these publications directed and supervised the research which forms the basis
+for this dissertation.
+
+For all four multi-authored publications, I was the first author and lead investigator.
+I formulated the research questions, designed and implemented the methods, built and
+curated the datasets, ran all experiments and ablations, performed the analyses, produced
+the figures, and wrote the manuscripts. For ``HealNet,'' M.~Jafari, H.~Yang,
+R.~R.~Isseroff, M.~Rolandi, and M.~M.~Gomez designed and conducted the underlying murine
+wound-healing study and provided the longitudinal imagery and domain expertise used for
+the heal-stage analysis, and contributed to manuscript revision; the self-supervised
+method, its implementation, and its evaluation are my own contribution. For ``FEDD,''
+``Controllable Generation of Diverse Dermatological Imagery,'' and ``DermDepth,''
+N.~Norouzi supervised the research, advised on experimental design and framing, and
+edited the manuscripts. % TODO(Héctor): verify these attributions against your
+% co-authors' recollection before submitting, and adjust any that are not exactly right.
+
+\end{acknowledgements}
+
 \end{frontmatter}
 
 % ============================================================
