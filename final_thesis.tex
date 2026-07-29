@@ -82,14 +82,21 @@ Medical image analysis is constrained by a structural mismatch: clinical decisio
 Across the work, a pattern recurs: small, clean datasets; frozen large backbones with trainable heads; and explicit, skin-tone-stratified fairness evaluation. We believe this framework generalizes beyond dermatology to any data-constrained medical imaging domain. All synthetic data, fine-tuned checkpoints, annotation work, code, and per-disease generative models are released openly to support reproducibility and continued fairness research.
 \end{abstract}
 
-% A Dedication is OPTIONAL (UCSC: "If you wish, you may include a page..."). It is
-% left out deliberately: the class's dedication environment prints no heading, so an
-% empty one renders as a numbered blank page with a Table of Contents entry pointing
-% at nothing. To add one, uncomment and write the text:
-%
-% \begin{dedication}
-% \begin{center}\textit{For ...}\end{center}
-% \end{dedication}
+% Dedication. UCSC lists this before the Acknowledgments and treats it as optional
+% ("If you wish, you may include a page with a brief note of dedication...").
+% NOTE: the class's dedication environment prints NO heading -- by convention a
+% dedication is just a short centred line. If you would rather it carry a visible
+% "Dedication" title to match the Acknowledgments page, add this as the first line
+% inside the environment:
+%     \begin{center}{\large\bfseries \dedicationname}\end{center}\bigskip
+% Do not leave this environment empty: it would render as a numbered blank page
+% with a Table of Contents entry pointing at nothing.
+\begin{dedication}
+\vspace*{2in}
+\begin{center}
+\textit{For ...}  % TODO(Héctor): replace with your dedication.
+\end{center}
+\end{dedication}
 
 \begin{acknowledgements}
 
