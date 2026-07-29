@@ -288,6 +288,12 @@
 \def\deanlinetwo#1{\gdef\@deanlinetwo{#1}}
 \def\deanlinethree#1{\gdef\@deanlinethree{#1}}
 
+% An OPTIONAL license notice printed beneath the copyright statement, e.g. a
+% Creative Commons grant. Empty by default, so the copyright page reproduces the
+% UCSC sample exactly unless a notice is declared in the document preamble.
+\def\@licensenotice{}
+\def\licensenotice#1{\gdef\@licensenotice{#1}}
+
 
 % The number of committee members, which affects both the
 % number of lines and the amount of space between lines
@@ -423,8 +429,14 @@
 Copyright \copyright\ by\par
 \@author \par
 \@degreeyear \par}
+\ifx\@licensenotice\@empty\else
+\bigskip\bigskip
+\begin{minipage}{0.78\textwidth}
+\begin{center}{\ssp\fmsmallfont \@licensenotice \par}\end{center}
+\end{minipage}
+\fi
 \vfill
-\ \ \ \ \ 
+\ \ \ \ \
 \end{center}
 \end{alwayssingle}}
 % ABSTRACT
