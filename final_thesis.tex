@@ -59,8 +59,20 @@
 
 \begin{frontmatter}
 
+% Preliminary-page order is mandated by the UCSC Graduate Division
+% ("Dissertation and Thesis Preparation Guidelines", Rev July 2026):
+%   1. Title page  2. Copyright  3. Table of Contents
+%   4. List of Figures (and/or Tables)  5. Abstract
+%   6. Dedication and/or Acknowledgments  7. Text
+% Title page = i and copyright = ii (both counted, neither printed);
+% the Table of Contents starts at printed page iii.
+
 \maketitle
-%\copyrightpage
+\copyrightpage
+
+\tableofcontents
+\listoffigures
+\listoftables
 
 \begin{abstract}
 Medical image analysis is constrained by a structural mismatch: clinical decision-making demands fine-grained understanding across diverse populations, body sites, and disease severities, yet expert annotations are scarce, demographic coverage is uneven, and rare presentations are nearly absent. This dissertation develops deep learning algorithms that compensate for that mismatch through four connected works in dermatology and wound care, domains where the limitations are most acute, and the downstream stakes for under-imaged populations are highest. We develop four methods spanning unsupervised, self-supervised, and supervised strategies, with both non-parametric and parametric generative paradigms. When there are no labels, we learn unsupervised from temporal structure (HealNet); when there is no temporal structure, we learn supervised from a frozen diffusion backbone (FEDD); when the data themselves are too few and too imbalanced, we generate them with sensitive-attribute control (cgDDI); and to close the loop into 3D space, we develop metric scale dermatology foundation models with non-parametric synthetic and real data (DermDepth).
@@ -69,10 +81,6 @@ Medical image analysis is constrained by a structural mismatch: clinical decisio
 
 Across the work, a pattern recurs: small, clean datasets; frozen large backbones with trainable heads; and explicit, skin-tone-stratified fairness evaluation. We believe this framework generalizes beyond dermatology to any data-constrained medical imaging domain. All synthetic data, fine-tuned checkpoints, annotation work, code, and per-disease generative models are released openly to support reproducibility and continued fairness research.
 \end{abstract}
-
-\tableofcontents
-\listoffigures
-\listoftables
 
 \end{frontmatter}
 

@@ -413,7 +413,6 @@
 % While it's technically optional, you probably want a copyright page.
 % This is a macro, not an environment, because it can be generated
 % with the \title, \author, and \year macros.
-\iffalse
 \def\copyrightpage{
 \begin{alwayssingle}
 \thispagestyle{empty}
@@ -428,7 +427,6 @@ Copyright \copyright\ by\par
 \ \ \ \ \ 
 \end{center}
 \end{alwayssingle}}
-\fi
 % ABSTRACT
 %
 % The ABSTRACT environment allows for multi-page abstracts which,
@@ -439,8 +437,13 @@ Copyright \copyright\ by\par
 
 \def\abstract{
 \begin{alwayssingle}
-\pagestyle{empty}
-\thispagestyle{empty}
+% NOTE: \pagestyle{empty} and \thispagestyle{empty} were removed here. UCSC's
+% "Formatting Instructions and Clarifications" names this exact code as an old
+% Overleaf-template defect: the Abstract pages must carry roman page numbers.
+% Do NOT restore them, and do NOT uncomment the \setcounter{page}{1} below --
+% that is the legacy "abstract numbered separately in arabic" rule and would
+% restart the abstract at 1.
+\phantomsection
 \addcontentsline{toc}{chapter}{\abstractname}
 %\setcounter{page}{1}
 \begin{center}
@@ -464,6 +467,7 @@ by\par
 
 \newenvironment{dedication}
 {\begin{alwayssingle}
+\phantomsection
 \addcontentsline{toc}{chapter}{\dedicationname}}
 {\end{alwayssingle}}
 
@@ -474,6 +478,7 @@ by\par
 
 \newenvironment{acknowledgements}
 {\begin{alwayssingle}
+\phantomsection
 \addcontentsline{toc}{chapter}{\acknowledgename}
 \begin{center}
 {\large \bfseries \acknowledgename}
