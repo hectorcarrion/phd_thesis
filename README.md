@@ -4,7 +4,7 @@
 Advised by **Prof. Narges Norouzi** — EECS, **UC Berkeley**
 PhD, Computer Science & Engineering — University of California, Santa Cruz — 2026
 
-[![Dissertation: CC BY 4.0](https://img.shields.io/badge/Dissertation-CC%20BY%204.0-blue.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![Dissertation: CC BY-NC 4.0](https://img.shields.io/badge/Dissertation-CC%20BY--NC%204.0-blue.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
 [![Venues](https://img.shields.io/badge/MICCAI-2022%20%C2%B7%202023%20%C2%B7%202026-b31b1b.svg)](#the-four-works)
 [![Advised at UC Berkeley EECS](https://img.shields.io/badge/Advised%20at-UC%20Berkeley%20EECS-003262.svg)](https://eecs.berkeley.edu/)
 [![UC Santa Cruz](https://img.shields.io/badge/Degree-UC%20Santa%20Cruz-FDC700.svg)](https://engineering.ucsc.edu/)
@@ -115,4 +115,4 @@ make clean    # remove LaTeX intermediate files
 
 ## License
 
-The written dissertation (LaTeX source and author-created figures in this repository) is released under [**CC BY 4.0**](https://creativecommons.org/licenses/by/4.0/) — share and adapt with attribution. The bundled UCSC thesis class is redistributed under the LaTeX Project Public License; code, checkpoints, and datasets for each work live in their linked repositories under their own licenses; and figure imagery derives from public research datasets under those datasets' terms. See [`NOTICE`](NOTICE) for the full scope.
+The written dissertation (LaTeX source and author-created figures in this repository) is released under [**CC BY-NC 4.0**](https://creativecommons.org/licenses/by-nc/4.0/) — share and adapt for non-commercial purposes, with attribution. This matches the licence printed on the dissertation's copyright page. The bundled UCSC thesis class is redistributed under the LaTeX Project Public License; code, checkpoints, and datasets for each work live in their linked repositories under their own licenses; and figure imagery derives from public research datasets under those datasets' terms. See [`NOTICE`](NOTICE) for the full scope.

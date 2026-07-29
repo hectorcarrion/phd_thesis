@@ -4,8 +4,14 @@ NOTICE — Licensing scope for this repository
 The WRITTEN DISSERTATION in this repository — the LaTeX source
 (final_thesis.tex, final_thesis.bib) and the author-created figures under
 HealNet/, FEDD/, cgDDI/, and DermDepth/ — is © 2026 Héctor Carrión and is
-released under the Creative Commons Attribution 4.0 International license
-(CC-BY-4.0), as stated in LICENSE.
+released under the Creative Commons Attribution-NonCommercial 4.0
+International license (CC-BY-NC-4.0), as stated in LICENSE. This matches the
+licence notice printed on the dissertation's copyright page.
+
+Note on the earlier licence: between 2026-07-13 and 2026-08 this repository
+carried CC-BY-4.0. Creative Commons licences are irrevocable, so anyone who
+received the work under those terms retains them for that copy; the terms
+above apply going forward.
 
 The following are NOT covered by that grant:
 
